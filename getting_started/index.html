@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.10">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.14">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.7e359304.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.10ba22f1.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -589,7 +589,7 @@ However, in case you want to use our implementation you can add the extras requi
 <p>Once you have installed QATCH, you need to create a connection between your data and the tool.
 If your data is not stored in a sqlite database you can use our code to generate it.
 If this is not the case, you can skip this passage.</p>
-<p><div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kn">from</span> <span class="nn">qatch.database_reader</span> <span class="kn">import</span> <span class="n">SingleDatabase</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
@@ -615,7 +615,7 @@ If this is not the case, you can skip this passage.</p>
 </span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="c1"># create database connection</span>
 </span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="n">db</span> <span class="o">=</span> <span class="n">SingleDatabase</span><span class="p">(</span><span class="n">db_path</span><span class="o">=</span><span class="n">db_save_path</span><span class="p">,</span> <span class="n">db_name</span><span class="o">=</span><span class="n">db_id</span><span class="p">,</span> <span class="n">tables</span><span class="o">=</span><span class="n">db_tables</span><span class="p">,</span> <span class="n">table2primary_key</span><span class="o">=</span><span class="n">table2primary_key</span><span class="p">)</span>
 </span></code></pre></div>
-This class will create the sqlite database in "db_save_path/db_id/db_id.sqlite".</p>
+<p>This class will create the sqlite database in "db_save_path/db_id/db_id.sqlite".</p>
 <p>Once you have the database stored in this format "db_save_path/db_id/db_id.sqlite",
 you can create a connection in the following way:</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span> <span class="nn">qatch.database_reader</span> <span class="kn">import</span> <span class="n">MultipleDatabases</span>
@@ -672,12 +672,12 @@ any possible name associate with the model in the hub.</p>
 </span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>                   <span class="n">api_org</span><span class="o">=</span><span class="s2">&quot;your_api_org_chatgpt&quot;</span><span class="p">)</span>
 </span></code></pre></div>
 <p>To use LLama2_QA or LLama2_SP you need to specify the HuggingFace token</p>
-<p><div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span> <span class="nn">qatch.models</span> <span class="kn">import</span> <span class="n">LLama2_QA</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span> <span class="nn">qatch.models</span> <span class="kn">import</span> <span class="n">LLama2_QA</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">model</span> <span class="o">=</span> <span class="n">LLama2_QA</span><span class="p">(</span><span class="n">model_name</span><span class="o">=</span><span class="s2">&quot;meta-llama/Llama-2-7b-chat-hf&quot;</span><span class="p">,</span>
 </span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>                  <span class="n">hugging_face_token</span><span class="o">=</span><span class="s2">&quot;your_hugging_face_token&quot;</span><span class="p">)</span>
 </span></code></pre></div>
-The tests_df dataframe after the prediction phase contains:</p>
+<p>The tests_df dataframe after the prediction phase contains:</p>
 <ul>
 <li><em>db_id</em>: The database name associated with the test.</li>
 <li><em>tbl_name</em>: The table name associated with the test.</li>
@@ -688,14 +688,33 @@ The tests_df dataframe after the prediction phase contains:</p>
 </ul>
 <h2 id="step-3-qatch-evaluate">Step 3: QATCH evaluate</h2>
 <p>QATCH MetricEvaluator is composed of 5 metrics (3 intra-tuple and 2 inter-tuple).</p>
-<p><div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">from</span> <span class="nn">qatch</span> <span class="kn">import</span> <span class="n">MetricEvaluator</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">from</span> <span class="nn">qatch</span> <span class="kn">import</span> <span class="n">MetricEvaluator</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">evaluator</span> <span class="o">=</span> <span class="n">MetricEvaluator</span><span class="p">(</span><span class="n">databases</span><span class="o">=</span><span class="n">databases</span><span class="p">)</span>
 </span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">tests_df</span> <span class="o">=</span> <span class="n">evaluator</span><span class="o">.</span><span class="n">evaluate_with_df</span><span class="p">(</span><span class="n">tests_df</span><span class="p">,</span>
 </span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>                                      <span class="n">prediction_col_name</span><span class="o">=</span><span class="s2">&quot;&lt;prediction_col_name&gt;&quot;</span><span class="p">,</span>
 </span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>                                      <span class="n">task</span><span class="o">=</span><span class="s2">&quot;QA&quot;</span><span class="p">)</span>
 </span></code></pre></div>
-The final dataframe contains:</p>
+<p>You do not have to specify the "databases" in case the "target" and "predictions" are already executed for QA:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">eval_task</span> <span class="o">=</span> <span class="n">MetricEvaluator</span><span class="p">(</span><span class="n">databases</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;cell_precision&#39;</span><span class="p">,</span> <span class="s1">&#39;cell_recall&#39;</span><span class="p">])</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">test</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;sql_tags&quot;</span><span class="p">:</span> <span class="s2">&quot;SELECT&quot;</span><span class="p">,</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>        <span class="s2">&quot;prediction&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="s2">&quot;wales&quot;</span><span class="p">,</span> <span class="s2">&quot;scotland&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;england&quot;</span><span class="p">]],</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>        <span class="s2">&quot;target&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="s2">&quot;scotland&quot;</span><span class="p">,</span> <span class="s2">&quot;wales&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;england&quot;</span><span class="p">]]}</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="n">prediction_col_name</span> <span class="o">=</span> <span class="s2">&quot;prediction&quot;</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="n">target_col_name</span> <span class="o">=</span> <span class="s2">&quot;target&quot;</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="n">result</span> <span class="o">=</span> <span class="n">eval_task</span><span class="o">.</span><span class="n">evaluate_with_df</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">prediction_col_name</span><span class="p">,</span> <span class="s1">&#39;QA&#39;</span><span class="p">,</span> <span class="n">target_col_name</span><span class="p">)</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="c1"># {&#39;cell_precision_prediction&#39;: 1.0, &#39;cell_recall_prediction&#39;: 1.0}</span>
+</span></code></pre></div>
+<p><strong>Attention</strong></p>
+<p>For SP, if you have both the target and the predictions already executed, you have to specify the task as 'QA'</p>
+<p>This because when using task 'SP' there are automatic controls on the query syntactic which are not available if they have
+already been executed.</p>
+<p>The final dataframe contains:</p>
 <ul>
 <li><em>db_id</em>: The database name associated with the test.</li>
 <li><em>tbl_name</em>: The table name associated with the test.</li>
@@ -783,7 +802,7 @@ The final dataframe contains:</p>
     <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest", "search.highlight", "search.share", "navigation.instant", "navigation.instant.progress", "navigation.top", "navigation.tabs.collapse"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "1.5.18"}</script>
     
     
-      <script src="../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      <script src="../assets/javascripts/bundle.bd41221c.min.js"></script>
       
     
   </body>
