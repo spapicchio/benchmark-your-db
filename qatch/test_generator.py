@@ -69,13 +69,14 @@ class TestGenerator:
         tests_df_list = []
         for db_name in tqdm(db_names, desc='Generating test for each database'):
             # for each db_name
-            for generator in generators:
+            for generator_name in generators:
                 # init generator
                 db = self.databases[db_name]
-                generator = self._generators[generator](db, seed)
+                generator = self._generators[generator_name](db, seed)
                 for tbl in db.table_names:
                     sql_generated = generator.sql_generate(tbl)
                     df = self._build_df(db_name, tbl, sql_generated)
+                    df['sql_generator'] = generator_name.upper()
                     tests_df_list.append(df)
 
         tests_df = pd.concat(tests_df_list, ignore_index=True)

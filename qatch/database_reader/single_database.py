@@ -195,7 +195,7 @@ class SingleDatabase:
         """
         with self.connect_cursor() as cursor:
             conn = cursor.connection
-            return pd.read_sql_query(f"SELECT * FROM {table_name}", conn)
+            return pd.read_sql_query(f"SELECT * FROM `{table_name}`", conn)
 
     def get_schema_given(self, table_name: str) -> pd.DataFrame:
         """
