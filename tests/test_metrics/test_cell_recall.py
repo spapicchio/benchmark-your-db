@@ -75,7 +75,7 @@ class TestCellRecall:
                   ['True', 'BC', 18, 0.8, 'AB', 'CA', 157, 9.7706304446, 'linux', 'Paid']]
         result = instance.evaluate_single_test_metric(target, prediction)
         # 14 distinct elements in target
-        assert result == round(2 / 20, 3)
+        assert result == round(1 / 14, 3)
 
     def test_cell_recall_time(self, instance):
         target = np.random.rand(20, 1000)

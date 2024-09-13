@@ -1,7 +1,7 @@
 import pandas as pd
 import pytest
 
-from database_reader import SingleDatabase
+from qatch.database_reader import SingleDatabase
 from qatch.sql_generator.abstract_sql_generator import AbstractSqlGenerator
 
 DB_PATH = 'test_db'
