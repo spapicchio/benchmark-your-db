@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "qatch"
-version = "1.0.26"
+version = "1.0.27"
 description = ""
 license = "apache-2.0"
 authors = ["spapicchio <simone.papicchio@polito.it>"]

@@ -9,3 +9,4 @@ class StateOrchestratorGenerator(TypedDict):
     database: dict[str, ConnectorTable]
     generated_templates: Annotated[list, operator.add]
     column_to_include: str
+    tbl_names: list[str]

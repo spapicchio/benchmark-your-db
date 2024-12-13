@@ -88,13 +88,16 @@ class BaseGenerator(ABC):
         database = state['database']
         self.column_to_include = state['column_to_include'] if 'column_to_include' in state else None
         connector = self.connector = state['connector']
+        tbl_names = state['tbl_names']
         table_tests = []
-        for tbl_name, table in database.items():
-            tests = self.template_generator(table)
+        for tbl_name in tbl_names:
+            table = database[tbl_name]
+            if not self._is_table_empty(table):
+                tests = self.template_generator(table)
 
-            tests = [self._create_base_test(table, test) for test in tests]
+                tests = [self._create_base_test(table, test) for test in tests]
 
-            table_tests.append(tests)
+                table_tests.append(tests)
         # flatten the table tests
         table_tests = list(chain.from_iterable(table_tests))
 
@@ -123,3 +126,6 @@ class BaseGenerator(ABC):
                 continue
 
         return new_tests
+
+    def _is_table_empty(self, table: ConnectorTable) -> bool:
+        return len(self.connector.run_query(f'SELECT * FROM `{table.tbl_name}` LIMIT 1')) == 0
