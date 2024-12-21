@@ -59,8 +59,7 @@ class OrchestratorGenerator:
     def __init__(self, generator_names: list[str] | None = None):
         graph = StateGraph(StateOrchestratorGenerator)
 
-        if generator_names is None:
-            generator_names = name2generator.keys()
+        generator_names = generator_names or list(name2generator.keys())
 
         list_node_fun = [
             (name, name2generator[name]().graph_call)

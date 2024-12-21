@@ -56,7 +56,7 @@ class ProjectGenerator(BaseGenerator):
         return [SingleQA(
             query=f'SELECT * FROM `{tbl_name}`',
             question=f"Show all the rows in the table {tbl_name}",
-            sql_tag='SELECT-ALL',
+            sql_tag='PROJECT-ALL',
         )]
 
     def generate_project_single_col(self, columns, tbl_name) -> list[SingleQA]:
@@ -87,7 +87,7 @@ class ProjectGenerator(BaseGenerator):
             test = SingleQA(
                 query=f'SELECT `{col_name}` FROM `{tbl_name}`',
                 question=f'Show all {col_name} in the table {tbl_name}',
-                sql_tag='SELECT-SINGLE-COL',
+                sql_tag='PROJECT-SINGLE-COL',
             )
             output.append(test)
         return output
@@ -115,7 +115,7 @@ class ProjectGenerator(BaseGenerator):
             test = SingleQA(
                 query=f'SELECT {query_cols} FROM `{tbl_name}`',
                 question=f'Show all {question_cols} in the table {tbl_name}',
-                sql_tag='SELECT-ADD-COL',
+                sql_tag='PROJECT-ADD-COL',
             )
             output.append(test)
         return output
@@ -148,7 +148,7 @@ class ProjectGenerator(BaseGenerator):
             test = SingleQA(
                 query=f'SELECT {query_cols} FROM `{tbl_name}`',
                 question=f'Show all {question_cols} in the table {tbl_name}',
-                sql_tag='SELECT-RANDOM-COL',
+                sql_tag='PROJECT-RANDOM-COL',
             )
             output.append(test)
         return output

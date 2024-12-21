@@ -156,7 +156,8 @@ class HavingGenerator(BaseGenerator):
         average = self.connector.run_query(f'SELECT AVG(row_count) FROM ({inner_query})')[0][0]
         return int(average)
 
-    def _get_average_of_sum_avg_cat_col(self, table_name: str, cat_col: list[str], num_col: list[str]) -> float:
+    def _get_average_of_sum_avg_cat_col(self, table_name: str, cat_col: list[str], num_col: list[str]
+                                        ) -> tuple[float, float]:
         """
         This method calculates the average sum and average of a specified numerical column for each category in a
         specified categorical column. It presents these results as a tuple.

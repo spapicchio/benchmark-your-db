@@ -69,7 +69,7 @@ class SelectGenerator(BaseGenerator):
                 single_test = SingleQA(
                     query=f"""SELECT * FROM `{table_name}` WHERE `{cat_col}` {operation[0]} '{sample_element}'""",
                     question=f'Show the data of the table {table_name} where {cat_col} {operation[1]} {sample_element}',
-                    sql_tag=f'WHERE-CAT',
+                    sql_tag=f'SELECT-CAT',
                 )
                 tests.append(single_test)
         return tests
@@ -113,7 +113,7 @@ class SelectGenerator(BaseGenerator):
                 single_test = SingleQA(
                     query=f'SELECT * FROM `{table_name}` WHERE `{num_col}` {operation[0]} {sample_element}',
                     question=f'Show the data of the table {table_name} where {num_col} {operation[1]} {sample_element}',
-                    sql_tag=f'WHERE-NUM',
+                    sql_tag=f'SELECT-NUM',
                 )
                 tests.append(single_test)
         return tests
